@@ -9,14 +9,22 @@ require('./bootstrap');
 
 window.Vue = require('vue');
 
+require('js/jquery.easing.1.3.js');
+require('js/jquery.waypoints.min.js');
+require('js/jquery.stellar.min.js');
+require('js/main.js');
+
+
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-Vue.component('example', require('./components/Example.vue'));
-
+Vue.component('blog-aside', require('./components/Aside.vue'));
+Vue.component('blog-main', require('./components/Main.vue'));
+Vue.component('blog-main-footer', require('./components/Main-footer.vue'));
+Vue.component('blog-goto-top', require('./components/Go-top.vue'));
 const app = new Vue({
-    el: '#app'
+    el: '#page'
 });
