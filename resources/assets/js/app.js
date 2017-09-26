@@ -14,7 +14,7 @@ require('js/jquery.waypoints.min.js');
 require('js/jquery.stellar.min.js');
 require('js/main.js');
 
-
+import store from './store'
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -26,5 +26,6 @@ Vue.component('blog-main', require('./components/Main.vue'));
 Vue.component('blog-main-footer', require('./components/Main-footer.vue'));
 Vue.component('blog-goto-top', require('./components/Go-top.vue'));
 const app = new Vue({
-    el: '#page'
+    el: '#page',
+    store
 });

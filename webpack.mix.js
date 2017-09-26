@@ -11,14 +11,14 @@ let mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/assets/js/app.js', 'public/js')
-   .sass('resources/assets/sass/app.scss', 'public/css')
+mix.js('resources/assets/js/app.js', 'public/js').version();
+mix.sass('resources/assets/sass/app.scss', 'public/css')
    .styles([
         'resources/assets/css/animate.css',
         'resources/assets/css/icomoon.css',
         'resources/assets/css/style.css'
     ], 'public/css/all.css')
-    .version();
+
 
 mix.webpackConfig({
     resolve: {
