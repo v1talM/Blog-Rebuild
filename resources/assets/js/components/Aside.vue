@@ -1,5 +1,5 @@
 <template lang="html">
-    <div id="fh5co-aside" :style="{backgroundImage: 'url(' + background + ')'}">
+    <div id="fh5co-aside" :style="{backgroundImage: 'url(' + bg + ')'}">
         <div class="overlay"></div>
         <nav role="navigation">
             <ul>
@@ -14,9 +14,23 @@
 </template>
 
 <script>
+    import {mapState} from 'vuex'
     export default {
-        mounted() {
-            console.log('Component mounted.')
+        computed: mapState({
+            previewThumb: state => state.common.previewThumb
+        }),
+        data () {
+            return {
+                bg: null
+            }
+        },
+        watch: {
+            previewThumb () {
+                this.bg = 'http://blog.sparki.cn' + this.previewThumb
+            }
+        },
+        mounted () {
+            this.bg = this.background
         },
         props:['homeRoute', 'intro', 'background']
     }

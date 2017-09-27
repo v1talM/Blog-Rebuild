@@ -33,4 +33,10 @@ class HomeController extends Controller
             ;
         return view('home', compact('articles'));
     }
+
+    public function article($slug)
+    {
+        $article = Article::where('slug', $slug)->get()->toJson();
+        return view('article', compact('article'));
+    }
 }
