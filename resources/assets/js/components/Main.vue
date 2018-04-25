@@ -2,7 +2,7 @@
     <div id="fh5co-main-content">
         <div class="fh5co-post">
             <div class="fh5co-entry padding" v-for="article in articles" @mouseover="preview(article)">
-                <img :src="'http://blog.sparki.cn' + article.thumbnail" :alt="article.title">
+                <img :src="'http://www.sparki.cn' + article.thumbnail" :alt="article.title">
                 <div>
                     <span class="fh5co-post-date">{{ article.published_at }} -
                         <a :href="article.category.slug">{{ article.category.slug }}</a>
