@@ -26,7 +26,7 @@
         },
         watch: {
             previewThumb () {
-                this.bg = 'http://blog.sparki.cn' + this.previewThumb
+                this.bg = 'http://www.sparki.cn' + this.previewThumb
             }
         },
         mounted () {
