@@ -36,7 +36,10 @@ class HomeController extends Controller
 
     public function article($slug)
     {
-        $article = Article::where('slug', $slug)->get()->toJson();
+        $article = collect(Article::where('slug', $slug)->with('category')->first())->toArray();
+        if (empty($article)) {
+            abort(404);
+        }
         return view('article', compact('article'));
     }
 }

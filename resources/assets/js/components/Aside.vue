@@ -15,6 +15,7 @@
 
 <script>
     import {mapState} from 'vuex'
+    import {hosts} from '../env'
     export default {
         computed: mapState({
             previewThumb: state => state.common.previewThumb
@@ -26,7 +27,7 @@
         },
         watch: {
             previewThumb () {
-                this.bg = 'http://www.sparki.cn' + this.previewThumb
+                this.bg = hosts + this.previewThumb
             }
         },
         mounted () {

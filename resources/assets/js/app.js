@@ -25,6 +25,7 @@ Vue.component('blog-aside', require('./components/Aside.vue'));
 Vue.component('blog-main', require('./components/Main.vue'));
 Vue.component('blog-main-footer', require('./components/Main-footer.vue'));
 Vue.component('blog-goto-top', require('./components/Go-top.vue'));
+Vue.component('blog-content', require('./components/Content'));
 const app = new Vue({
     el: '#page',
     store
