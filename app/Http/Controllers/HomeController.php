@@ -3,18 +3,23 @@
 namespace App\Http\Controllers;
 
 use App\Models\Article;
+use App\Models\Category;
 use Illuminate\Http\Request;
+use Symfony\Component\HttpKernel\Exception\NotAcceptableHttpException;
 
 class HomeController extends Controller
 {
+    private $article;
+    private $category;
     /**
      * Create a new controller instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(Article $article, Category $category)
     {
-
+        $this->article = $article;
+        $this->category = $category;
     }
 
     /**
@@ -25,19 +30,23 @@ class HomeController extends Controller
     public function index()
     {
 
-        $articles = Article::select('id', 'title', 'slug', 'thumbnail', 'published_at', 'excerpt', 'category_id')
+        $articles = $this->article->select('id', 'title', 'slug', 'thumbnail', 'published_at', 'excerpt', 'category_id')
             ->with('category')
             ->orderBy('published_at', 'desc')
             ->get()
             ->toJson()
             ;
-        return view('home', compact('articles'));
+        $category = $this->category->select('name')->get()->toJson();
+        return view('home', compact('articles', 'category'));
     }
 
     public function article($slug)
     {
         $article = collect(Article::where('slug', $slug)->with('category')->first())->toArray();
         if (empty($article)) {
+            abort(404);
+        }
+        if ($article['is_public'] != 1) {
             abort(404);
         }
         return view('article', compact('article'));

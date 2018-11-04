@@ -4,6 +4,7 @@
         <nav role="navigation">
             <ul>
                 <li><a :href="homeRoute"><i class="icon-home"></i></a></li>
+                <!--<li><a href="#" v-for="cate in categories">{{ cate.name }}</a></li>-->
             </ul>
         </nav>
         <div class="featured">
@@ -33,7 +34,7 @@
         mounted () {
             this.bg = this.background
         },
-        props:['homeRoute', 'intro', 'background']
+        props:['homeRoute', 'intro', 'background', 'categories']
     }
 </script>
 

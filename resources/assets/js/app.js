@@ -26,6 +26,13 @@ Vue.component('blog-main', require('./components/Main.vue'));
 Vue.component('blog-main-footer', require('./components/Main-footer.vue'));
 Vue.component('blog-goto-top', require('./components/Go-top.vue'));
 Vue.component('blog-content', require('./components/Content'));
+Vue.component('blog-login', require('./components/admin/Login'));
+
+Vue.component('admin-header', require('./components/admin/Admin-header'));
+Vue.component('admin-main', require('./components/admin/Admin-main'));
+Vue.component('article-list', require('./components/admin/Article-list'));
+Vue.component('article-edit', require('./components/admin/Article-edit'));
+Vue.component('article-create', require('./components/admin/Article-create'));
 const app = new Vue({
     el: '#page',
     store

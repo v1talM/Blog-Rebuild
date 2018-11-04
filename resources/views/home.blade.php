@@ -4,6 +4,7 @@
     <blog-aside home-route="{{ route('home') }}"
                 intro="{{ config('blog.self-intro') }}"
                 background="https://unsplash.it/600/800/?random&gravity=center"
+                v-bind:categories="{{ $category }}"
     >
 
     </blog-aside>

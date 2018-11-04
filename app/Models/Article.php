@@ -6,13 +6,14 @@ use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use App\Models\Category;
+use Overtrue\Pinyin\Pinyin;
 
 class Article extends Model
 {
     use SoftDeletes;
     protected $fillable = [
         'title','slug','excerpt','thumbnail','content','origin_content','category_id','read_count','reply_count',
-        'is_recommened' , 'order','published_at'
+        'is_recommened' , 'order','published_at', 'is_public'
     ];
     protected $dates = ['published_at'];
     /**
@@ -29,11 +30,6 @@ class Article extends Model
     public function setPublishedAtAttribute($date)
     {
         $this->attributes['published_at'] = Carbon::createFromFormat('Y-m-d H:i:s',$date);
-    }
-    public function getPublishedAtAttribute($query)
-    {
-        $date = new Carbon($query);
-        return $date->diffForHumans();
     }
 
     public function category()
