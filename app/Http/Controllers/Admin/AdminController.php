@@ -26,7 +26,7 @@ class AdminController extends Controller
     public function index()
     {
         $nav = json_encode($this->nav);
-        return redirect()->route('admin.article');
+        return view('admin', compact('nav'));
     }
 
     public function articles()
