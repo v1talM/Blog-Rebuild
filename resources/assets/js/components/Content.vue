@@ -6,7 +6,7 @@
                 <h3 class="fh5co-post-title">{{ title }}</h3>
                 <a :href="category" class="fh5co-post-excerpt">{{ excerpt }}</a>
                 <hr class="divider">
-                <div class="fh5co-content" v-html="content">
+                <div class="fh5co-content prettyprint" v-html="content">
 
                 </div>
             </div>
@@ -15,9 +15,21 @@
 </template>
 
 <script>
+    import hljs from 'highlight.js'
+    import 'highlight.js/styles/atom-one-dark.css'
+    const highlightCode = () => {
+      const preEl = document.querySelectorAll('pre')
+
+      preEl.forEach((el) => {
+          hljs.highlightBlock(el)
+      })
+    }
     export default {
         name: "Content",
-        props: ['date', 'title', 'excerpt', 'category', 'content', 'read']
+        props: ['date', 'title', 'excerpt', 'category', 'content', 'read'],
+        mounted () {
+            highlightCode()
+        }
     }
 </script>
 
