@@ -11,7 +11,7 @@ let mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/assets/js/app.js', 'public/js').version();
+mix.js('resources/assets/js/app.js', 'public/js').version().extract(['vue']);
 mix.sass('resources/assets/sass/app.scss', 'public/css')
    .styles([
         'resources/assets/css/animate.css',
