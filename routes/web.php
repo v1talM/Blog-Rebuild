@@ -15,6 +15,7 @@
 
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/article/{slug}', 'HomeController@article')->name('article');
+Route::get('/c/{category}', 'HomeController@category')->name('category');
 
 Route::get('/oauth/github', 'SocialAuthGithubController@redirectToProvider');
 Route::get('/oauth/github/callback', 'SocialAuthGithubController@handleProviderCallback');

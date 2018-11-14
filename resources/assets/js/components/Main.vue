@@ -8,13 +8,13 @@
 
                 <div>
                     <span class="fh5co-post-date">{{ article.published_at }} -
-                        <a :href="article.category.slug">{{ article.category.description }}</a>
+                        <a :href="/c/ + article.category.slug">{{ article.category.description }}</a>
                     </span>
-                    <h2><a v-bind:href="'article/' + article.slug">{{ article.title }}</a></h2>
+                    <h2><a v-bind:href="'/article/' + article.slug">{{ article.title }}</a></h2>
                     <p>{{ article.excerpt }}</p>
                 </div>
             </div>
-            <blog-main-footer></blog-main-footer>
+            <blog-main-footer v-show="display_footer"></blog-main-footer>
         </div>
     </div>
 </template>
@@ -23,7 +23,7 @@
     import {mapState} from 'vuex'
     import {hosts} from '../env'
     export default {
-        props: ['articles'],
+        props: ['articles', 'display_footer'],
         computed: mapState({
             previewThumb: state => state.common.previewThumb
         }),

@@ -42,7 +42,7 @@ class HomeController extends Controller
 
     public function article($slug)
     {
-        $article = collect(Article::where('slug', $slug)->with('category')->first())->toArray();
+        $article = collect($this->article->where('slug', $slug)->with('category')->first())->toArray();
         if (empty($article)) {
             abort(404);
         }
@@ -50,5 +50,19 @@ class HomeController extends Controller
             abort(404);
         }
         return view('article', compact('article'));
+    }
+
+    public function category($category)
+    {
+        $cate = $this->category->select('slug', 'description')->where('slug', $category)->first();
+        $articles = $this->article->select('id', 'title', 'slug', 'thumbnail', 'published_at', 'excerpt', 'category_id')
+            ->whereHas('category', function ($query) use ($category){
+                $query->where('slug', $category);
+            })
+            ->with('category')
+            ->orderBy('published_at', 'desc')
+            ->get()
+            ->toJson();
+        return view('category', compact('cate', 'articles'));
     }
 }

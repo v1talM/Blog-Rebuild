@@ -8,6 +8,6 @@
     >
 
     </blog-aside>
-    <blog-main v-bind:articles="{{ $articles }}"></blog-main>
+    <blog-main v-bind:articles="{{ $articles }}" v-bind:display_footer="true"></blog-main>
     <blog-goto-top></blog-goto-top>
 @endsection
