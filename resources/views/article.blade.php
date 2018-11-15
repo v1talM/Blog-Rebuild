@@ -9,7 +9,7 @@
     <blog-content date="{{ $article['published_at'] }}"
                   title="{{ $article['title'] }}"
                   excerpt="{{ $article['category']['description'] }}"
-                  category="{{ config('app.url') . $article['category']['slug'] }}"
+                  category="{{ config('app.url') . '/c/' . $article['category']['slug'] }}"
                   content="{{ $article['content'] }}"
     >
     </blog-content>
