@@ -14,6 +14,7 @@
 
 
 Route::get('/', 'HomeController@index')->name('home');
+Route::get('/WebGL', 'HomeController@webgl')->name('webgl');
 Route::get('/article/{slug}', 'HomeController@article')->name('article');
 Route::get('/c/{category}', 'HomeController@category')->name('category');
 

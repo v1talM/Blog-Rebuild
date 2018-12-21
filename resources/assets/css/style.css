@@ -367,6 +367,7 @@ h1, h2, h3, h4, h5, h6, figure {
   position: absolute;
   bottom: 0;
   padding: 30px;
+  width: 100%;
 }
 .single #fh5co-aside .featured, .single #fh5co-aside nav, .single #fh5co-aside .page-title {
   width: 100%;
@@ -415,7 +416,8 @@ h1, h2, h3, h4, h5, h6, figure {
 #fh5co-aside nav ul li a {
   font-size: 14px;
   text-transform: uppercase;
-  position: relative;
+  float: left;
+  margin-left: 1rem;
   height: 30px;
   width: 30px;
   display: block;
@@ -872,6 +874,10 @@ footer {
 
 .js .animate-box {
   opacity: 0;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  line-height: 2.2;
 }
 
 /*# sourceMappingURL=style.css.map */

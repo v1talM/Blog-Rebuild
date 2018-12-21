@@ -4,6 +4,7 @@
         <nav role="navigation">
             <ul>
                 <li><a :href="homeRoute"><i class="icon-home"></i></a></li>
+                <li><a href="/WebGL"><i class="icon-heart"></i></a></li>
                 <!--<li><a href="#" v-for="cate in categories">{{ cate.name }}</a></li>-->
             </ul>
         </nav>

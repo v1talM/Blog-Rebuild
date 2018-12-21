@@ -65,4 +65,14 @@ class HomeController extends Controller
             ->toJson();
         return view('category', compact('cate', 'articles'));
     }
+
+    public function webgl()
+    {
+        $articles = $this->article->select('id', 'title', 'slug', 'thumbnail','category_id')
+            ->with('category')
+            ->orderBy('published_at', 'desc')
+            ->get()
+            ->toJson();
+        return view('webgl', compact('articles'));
+    }
 }
